@@ -1,0 +1,140 @@
+[gd_scene load_steps=21 format=3 uid="uid://copmddbeoxptn"]
+
+[ext_resource type="Script" uid="uid://b8tquxkhy3x0s" path="res://scripts/entity/player.gd" id="1_e1voy"]
+[ext_resource type="Texture2D" uid="uid://dbsqvv3ldcpn0" path="res://sprites/characters/meteor.png" id="2_lbk4g"]
+[ext_resource type="Script" uid="uid://cpqjx5cbwef01" path="res://scripts/entity/entity_profile.gd" id="2_vt2c5"]
+[ext_resource type="AnimationLibrary" uid="uid://dcf4y43qenopi" path="res://resources/frames/meteor_frames.tres" id="3_sekl2"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://c7n6fg70rwalh" path="res://resources/state_machine/player_animation_tree_root.tres" id="4_8i35p"]
+[ext_resource type="Script" uid="uid://d1lnop3ovl2t0" path="res://scripts/interaction/player_interact_area.gd" id="5_5npg3"]
+[ext_resource type="Script" uid="uid://b81cx8kwnj3lp" path="res://addons/inventory-system/extras/character_inventory_system.gd" id="6_7sfp8"]
+[ext_resource type="Resource" uid="uid://b04hr618mq72o" path="res://resources/inventory/database.tres" id="7_r4rq5"]
+[ext_resource type="Script" uid="uid://bkltpqha76jml" path="res://addons/inventory-system/core/inventory_handler.gd" id="8_qwm7e"]
+[ext_resource type="Script" uid="uid://wkhjv8wq1c5s" path="res://addons/inventory-system/core/inventory.gd" id="9_mrcak"]
+[ext_resource type="Script" uid="uid://bcn5yk30o60vt" path="res://addons/inventory-system/core/slot.gd" id="10_vt2c5"]
+[ext_resource type="Script" uid="uid://dh0yupf2ed1n" path="res://addons/inventory-system/interact/inventory_interactor.gd" id="11_vt2c5"]
+[ext_resource type="Script" uid="uid://ca4tn0xgs2vfy" path="res://addons/inventory-system/core/hotbar.gd" id="12_vt2c5"]
+[ext_resource type="Script" uid="uid://dxon3r4opvblj" path="res://addons/inventory-system/craft/crafter.gd" id="13_qwm7e"]
+[ext_resource type="Script" uid="uid://bnl6w7tpg3erg" path="res://addons/inventory-system/craft/craft_station.gd" id="14_mrcak"]
+[ext_resource type="Script" uid="uid://5xxkduuc0u58" path="res://addons/inventory-system/extras/object_placer_2d.gd" id="14_vt2c5"]
+[ext_resource type="Resource" uid="uid://p761m6t8yitk" path="res://resources/inventory/craft_stations/hand.tres" id="15_mrcak"]
+
+[sub_resource type="Resource" id="Resource_1m386"]
+script = ExtResource("2_vt2c5")
+name = "光之战士"
+speed = 100
+metadata/_custom_type_script = "uid://cpqjx5cbwef01"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt2c5"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ucpq"]
+radius = 16.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("character_inventory_system")]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_e1voy")
+character_inventory_system = NodePath("CharacterInventorySystem")
+profile = SubResource("Resource_1m386")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_lbk4g")
+offset = Vector2(0, -8)
+hframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_vt2c5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("3_sekl2")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = ExtResource("4_8i35p")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 1.0
+parameters/state_machine/idle/blend_position = Vector2(-0.241237, 0.713004)
+parameters/state_machine/pick/blend_position = Vector2(0, 1.10989)
+parameters/state_machine/walk/blend_position = Vector2(0, 0)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerInteractArea" type="Area2D" parent="." node_paths=PackedStringArray("player", "inventory_handler")]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("5_5npg3")
+player = NodePath("..")
+inventory_handler = NodePath("../CharacterInventorySystem/InventoryHandler")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractArea"]
+shape = SubResource("CircleShape2D_2ucpq")
+
+[node name="CharacterInventorySystem" type="Node" parent="."]
+script = ExtResource("6_7sfp8")
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://b81cx8kwnj3lp"
+
+[node name="InventoryHandler" type="Node" parent="CharacterInventorySystem" node_paths=PackedStringArray("inventories")]
+script = ExtResource("8_qwm7e")
+inventories = [NodePath("Inventory")]
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://bkltpqha76jml"
+
+[node name="Inventory" type="Node" parent="CharacterInventorySystem/InventoryHandler"]
+script = ExtResource("9_mrcak")
+slots = Array[ExtResource("10_vt2c5")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_amount = 32
+inventory_name = "背包"
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://wkhjv8wq1c5s"
+
+[node name="Hotbar" type="Node" parent="CharacterInventorySystem" node_paths=PackedStringArray("inventory")]
+script = ExtResource("12_vt2c5")
+inventory = NodePath("../InventoryHandler/Inventory")
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://ca4tn0xgs2vfy"
+
+[node name="InventoryInteractor" type="Node" parent="CharacterInventorySystem" node_paths=PackedStringArray("interact_area")]
+script = ExtResource("11_vt2c5")
+interact_area = NodePath("../../PlayerInteractArea")
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://dh0yupf2ed1n"
+
+[node name="ObjectPlacer" type="Node" parent="CharacterInventorySystem/InventoryInteractor"]
+script = ExtResource("14_vt2c5")
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://5xxkduuc0u58"
+
+[node name="Crafter" type="Node" parent="CharacterInventorySystem" node_paths=PackedStringArray("main_station")]
+script = ExtResource("13_qwm7e")
+main_station = NodePath("Hand")
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://dxon3r4opvblj"
+
+[node name="Hand" type="Node" parent="CharacterInventorySystem/Crafter" node_paths=PackedStringArray("input_inventories", "output_inventories")]
+script = ExtResource("14_mrcak")
+input_inventories = [NodePath("../../InventoryHandler/Inventory")]
+output_inventories = [NodePath("../../InventoryHandler/Inventory")]
+limit_number_crafts = 1
+can_processing_craftings = false
+type = ExtResource("15_mrcak")
+database = ExtResource("7_r4rq5")
+metadata/_custom_type_script = "uid://bnl6w7tpg3erg"
+
+[node name="PickupAudio" type="AudioStreamPlayer" parent="CharacterInventorySystem"]
+
+[node name="DropAudio" type="AudioStreamPlayer" parent="CharacterInventorySystem"]
+
+[node name="HotbarChangeAudio" type="AudioStreamPlayer" parent="CharacterInventorySystem"]
+
+[node name="PlayerInventoryOpenAudio" type="AudioStreamPlayer" parent="CharacterInventorySystem"]
+
+[node name="PlayerInventoryCloseAudio" type="AudioStreamPlayer" parent="CharacterInventorySystem"]

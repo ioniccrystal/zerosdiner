@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=11 format=3 uid="uid://tbhlcju2sngp"]
+
+[ext_resource type="Script" uid="uid://bcn5yk30o60vt" path="res://addons/inventory-system/core/slot.gd" id="1_poev2"]
+[ext_resource type="Script" uid="uid://clxy4glwc7u0" path="res://addons/inventory-system/craft/recipe.gd" id="2_cmp14"]
+[ext_resource type="Resource" uid="uid://dbpfj7rpb48f7" path="res://resources/inventory/items/carrot.tres" id="2_hsrqi"]
+[ext_resource type="Script" uid="uid://brh7nasqtj7d2" path="res://addons/inventory-system/core/slot_item.gd" id="3_2q7l3"]
+[ext_resource type="Resource" uid="uid://cmm3ryfq2sh24" path="res://resources/inventory/items/carrot_seed.tres" id="4_ts6gd"]
+[ext_resource type="Resource" uid="uid://p761m6t8yitk" path="res://resources/inventory/craft_stations/hand.tres" id="6_dovvx"]
+
+[sub_resource type="Resource" id="Resource_majg1"]
+script = ExtResource("3_2q7l3")
+definition = ExtResource("2_hsrqi")
+properties = {}
+
+[sub_resource type="Resource" id="Resource_08uq3"]
+script = ExtResource("1_poev2")
+item = SubResource("Resource_majg1")
+amount = 1
+max_stack = -1
+
+[sub_resource type="Resource" id="Resource_7psqu"]
+script = ExtResource("3_2q7l3")
+definition = ExtResource("4_ts6gd")
+properties = {}
+
+[sub_resource type="Resource" id="Resource_op5u5"]
+script = ExtResource("1_poev2")
+item = SubResource("Resource_7psqu")
+amount = 1
+max_stack = -1
+
+[resource]
+script = ExtResource("2_cmp14")
+products = Array[ExtResource("1_poev2")]([SubResource("Resource_op5u5")])
+time_to_craft = 2.0
+station = ExtResource("6_dovvx")
+ingredients = Array[ExtResource("1_poev2")]([SubResource("Resource_08uq3")])
+required_items = Array[ExtResource("1_poev2")]([])

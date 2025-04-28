@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CraftStationType" load_steps=2 format=3 uid="uid://botq4av0vqpuc"]
+
+[ext_resource type="Script" uid="uid://dc6lrd2ui1l42" path="res://addons/inventory-system/craft/craft_station_type.gd" id="1_jl50k"]
+
+[resource]
+script = ExtResource("1_jl50k")
+name = "工作台"

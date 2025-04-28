@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg4usssdmkn3o"]
+
+[ext_resource type="Script" path="res://scripts/ui/mute_button.gd" id="2_8d5e4"]
+
+[node name="mute_button" type="Button"]
+texture_filter = 1
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+text = "静音"
+script = ExtResource("2_8d5e4")

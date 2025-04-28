@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://dv5ie344o83jb"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_vv8gf"]
+[ext_resource type="Texture2D" uid="uid://qngi61imn068" path="res://resources/inventory/item_textures/gloves.tres" id="2_880n3"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_al58l"]
+
+[resource]
+script = ExtResource("2_al58l")
+id = 9
+can_stack = false
+max_stack = 0
+name = "手套"
+icon = ExtResource("2_880n3")
+weight = 0.0
+properties = {}
+dynamic_properties = Array[String]([])
+categories = Array[ExtResource("1_vv8gf")]([])

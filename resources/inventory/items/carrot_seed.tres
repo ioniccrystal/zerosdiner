@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://cmm3ryfq2sh24"]
+
+[ext_resource type="Resource" uid="uid://dii001glbftfi" path="res://resources/inventory/categories/seed.tres" id="1_jrkdw"]
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_juqhe"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_bs1kd"]
+[ext_resource type="Texture2D" uid="uid://c0348p7lo52c8" path="res://resources/inventory/item_textures/carrot_seed.tres" id="2_jrkdw"]
+
+[resource]
+script = ExtResource("2_bs1kd")
+id = 7
+can_stack = true
+max_stack = 99
+name = "胡萝卜种子"
+icon = ExtResource("2_jrkdw")
+weight = 0.0
+properties = {
+"种子": 2.0
+}
+dynamic_properties = Array[String]([])
+categories = Array[ExtResource("1_juqhe")]([ExtResource("1_jrkdw")])

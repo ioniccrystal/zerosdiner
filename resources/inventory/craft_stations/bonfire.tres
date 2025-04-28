@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CraftStationType" load_steps=2 format=3 uid="uid://dubemr7g7uev7"]
+
+[ext_resource type="Script" uid="uid://dc6lrd2ui1l42" path="res://addons/inventory-system/craft/craft_station_type.gd" id="1_ectvi"]
+
+[resource]
+script = ExtResource("1_ectvi")
+name = "篝火"

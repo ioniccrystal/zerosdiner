@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://ho2hbcghbgm7"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_67hry"]
+[ext_resource type="Resource" uid="uid://6x2hclgosgic" path="res://resources/inventory/categories/facility.tres" id="1_rbh23"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_6rqek"]
+[ext_resource type="Texture2D" uid="uid://lcxine0eqvon" path="res://resources/inventory/item_textures/worktable.tres" id="2_rbh23"]
+
+[resource]
+script = ExtResource("2_6rqek")
+id = 5
+can_stack = false
+max_stack = 0
+name = "工作台"
+icon = ExtResource("2_rbh23")
+weight = 0.0
+properties = {
+"设施": "1"
+}
+dynamic_properties = Array[String]([])
+categories = Array[ExtResource("1_67hry")]([ExtResource("1_rbh23")])

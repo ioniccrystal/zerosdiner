@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemCategory" load_steps=2 format=3 uid="uid://b0neqi35q35us"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_hk448"]
+
+[resource]
+script = ExtResource("1_hk448")
+name = "素材"
+color = Color(1, 0.545098, 0.0313726, 1)

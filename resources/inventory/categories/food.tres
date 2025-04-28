@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemCategory" load_steps=2 format=3 uid="uid://c12v8no3rnk32"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_dsqu6"]
+
+[resource]
+script = ExtResource("1_dsqu6")
+name = "食品"
+color = Color(0.8, 0.227451, 0.388235, 1)

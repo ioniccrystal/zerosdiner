@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3iwgd5lqcxio"]
+
+[ext_resource type="Script" uid="uid://pvhvwjoq37uq" path="res://addons/inventory-system/core/dropped_item_2d.gd" id="1_nabxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nabxg"]
+radius = 2.0
+
+[node name="DropItem" type="Area2D" groups=["drops"]]
+z_index = 100
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_nabxg")
+metadata/_custom_type_script = "uid://pvhvwjoq37uq"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nabxg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

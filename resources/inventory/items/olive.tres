@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://dc57gp5j51146"]
+
+[ext_resource type="Resource" uid="uid://b0neqi35q35us" path="res://resources/inventory/categories/material.tres" id="1_v2csq"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_1evfe"]
+[ext_resource type="Texture2D" uid="uid://bf7rcqjy7yjs3" path="res://resources/inventory/item_textures/olive.tres" id="2_v2csq"]
+
+[resource]
+script = ExtResource("2_1evfe")
+id = 8
+can_stack = true
+max_stack = 99
+name = "橄榄"
+icon = ExtResource("2_v2csq")
+weight = 0.0
+properties = {}
+dynamic_properties = Array[String]([])
+categories = [ExtResource("1_v2csq")]

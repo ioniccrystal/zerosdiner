@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=11 format=3 uid="uid://dagl51ybq413y"]
+
+[ext_resource type="Script" uid="uid://bcn5yk30o60vt" path="res://addons/inventory-system/core/slot.gd" id="1_5cbf8"]
+[ext_resource type="Resource" uid="uid://nid7fxc5rqg4" path="res://resources/inventory/items/wood.tres" id="2_btrk5"]
+[ext_resource type="Script" uid="uid://clxy4glwc7u0" path="res://addons/inventory-system/craft/recipe.gd" id="2_yjx25"]
+[ext_resource type="Script" uid="uid://brh7nasqtj7d2" path="res://addons/inventory-system/core/slot_item.gd" id="3_y31jv"]
+[ext_resource type="Resource" uid="uid://ho2hbcghbgm7" path="res://resources/inventory/items/worktable.tres" id="4_wwhsp"]
+[ext_resource type="Resource" uid="uid://p761m6t8yitk" path="res://resources/inventory/craft_stations/hand.tres" id="6_w0gwd"]
+
+[sub_resource type="Resource" id="Resource_7k27r"]
+script = ExtResource("3_y31jv")
+definition = ExtResource("2_btrk5")
+properties = {}
+
+[sub_resource type="Resource" id="Resource_374sb"]
+script = ExtResource("1_5cbf8")
+item = SubResource("Resource_7k27r")
+amount = 3
+max_stack = -1
+
+[sub_resource type="Resource" id="Resource_nf6xp"]
+script = ExtResource("3_y31jv")
+definition = ExtResource("4_wwhsp")
+properties = {}
+
+[sub_resource type="Resource" id="Resource_diyoy"]
+script = ExtResource("1_5cbf8")
+item = SubResource("Resource_nf6xp")
+amount = 1
+max_stack = -1
+
+[resource]
+script = ExtResource("2_yjx25")
+products = Array[ExtResource("1_5cbf8")]([SubResource("Resource_diyoy")])
+time_to_craft = 4.0
+station = ExtResource("6_w0gwd")
+ingredients = Array[ExtResource("1_5cbf8")]([SubResource("Resource_374sb")])
+required_items = Array[ExtResource("1_5cbf8")]([])

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemCategory" load_steps=2 format=3 uid="uid://dii001glbftfi"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_h851l"]
+
+[resource]
+script = ExtResource("1_h851l")
+name = "种子"
+color = Color(0.666667, 0.968627, 0.282353, 1)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://cg6ctyhbbn2pv"]
+
+[ext_resource type="Resource" uid="uid://b0neqi35q35us" path="res://resources/inventory/categories/material.tres" id="1_jfps0"]
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_thys1"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_6sfhx"]
+[ext_resource type="Texture2D" uid="uid://cm10ngl00x4o5" path="res://resources/inventory/item_textures/lettuce.tres" id="2_thys1"]
+
+[resource]
+script = ExtResource("2_6sfhx")
+id = 1
+can_stack = true
+max_stack = 99
+name = "莴苣"
+icon = ExtResource("2_thys1")
+weight = 0.0
+properties = {}
+dynamic_properties = Array[String]([])
+categories = Array[ExtResource("1_thys1")]([ExtResource("1_jfps0")])

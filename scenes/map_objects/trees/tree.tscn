@@ -1,0 +1,74 @@
+[gd_scene load_steps=15 format=3 uid="uid://b250w8fvj121h"]
+
+[ext_resource type="Script" uid="uid://jljhj12ocffs" path="res://scripts/map_objects/tree.gd" id="1_6mwwg"]
+[ext_resource type="Script" uid="uid://15gr2aw7uo6j" path="res://addons/inventory-system/interact/interact_action.gd" id="2_afw4n"]
+[ext_resource type="Texture2D" uid="uid://cx5siw621ewu8" path="res://sprites/tilesets/cozy_iso_master.png" id="2_edxuo"]
+[ext_resource type="Resource" uid="uid://gbqmoxcwalf8" path="res://resources/inventory/items/branch.tres" id="2_ol3w7"]
+[ext_resource type="PackedScene" uid="uid://d3iwgd5lqcxio" path="res://scenes/map_objects/drop_item.tscn" id="2_q2jff"]
+[ext_resource type="Script" uid="uid://brh7nasqtj7d2" path="res://addons/inventory-system/core/slot_item.gd" id="3_riy5g"]
+[ext_resource type="Texture2D" uid="uid://c35tq7cqp2ygb" path="res://sprites/items/trees/young_tree.png" id="6_riy5g"]
+
+[sub_resource type="Resource" id="Resource_riy5g"]
+script = ExtResource("3_riy5g")
+definition = ExtResource("2_ol3w7")
+properties = {}
+metadata/_custom_type_script = "uid://brh7nasqtj7d2"
+
+[sub_resource type="Resource" id="Resource_q2jff"]
+script = ExtResource("2_afw4n")
+input = "interact"
+description = "砍伐"
+code = 0
+metadata/_custom_type_script = "uid://15gr2aw7uo6j"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mku8g"]
+atlas = ExtResource("2_edxuo")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjos"]
+atlas = ExtResource("2_edxuo")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiiai"]
+atlas = ExtResource("2_edxuo")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_guq5w"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("6_riy5g")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_mku8g")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_wpjos")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_uiiai")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6mwwg"]
+
+[node name="Tree" type="Area2D"]
+script = ExtResource("1_6mwwg")
+item_list = Array[ExtResource("3_riy5g")]([SubResource("Resource_riy5g")])
+drop_item_scene = ExtResource("2_q2jff")
+actions = Array[ExtResource("2_afw4n")]([SubResource("Resource_q2jff")])
+metadata/_custom_type_script = "uid://b3rypu4ian4c2"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_guq5w")
+autoplay = "default"
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6mwwg")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

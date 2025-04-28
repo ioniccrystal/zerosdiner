@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://2wacm2cbuaxi"]
+
+[ext_resource type="Script" uid="uid://dhknxklgeua4j" path="res://scripts/main.gd" id="1_3lgf1"]
+[ext_resource type="PackedScene" uid="uid://bllke6nby7koo" path="res://scenes/tilemaps.tscn" id="1_uvjg0"]
+[ext_resource type="PackedScene" uid="uid://dd6xqx7j7j65e" path="res://scenes/ui/pause_menu.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://copmddbeoxptn" path="res://scenes/entity/player.tscn" id="3_506sy"]
+[ext_resource type="PackedScene" uid="uid://da2b73383isem" path="res://addons/inventory-system/ui/inventory_system_ui.tscn" id="4_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dxlx55o51kvqb" path="res://sprites/characters/face/zero1.png" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://btksvi7wkfari" path="res://sprites/background/2.png" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://drprydcjt0gbd" path="res://sprites/background/3.png" id="7_o6xl0"]
+
+[sub_resource type="Gradient" id="Gradient_o6xl0"]
+colors = PackedColorArray(0.0666667, 0.0666667, 0.121569, 0, 0.0666667, 0.0666667, 0.121569, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tipki"]
+gradient = SubResource("Gradient_o6xl0")
+fill_to = Vector2(0, 1)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_3lgf1")
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Zero1" type="Sprite2D" parent="UI"]
+position = Vector2(167, 152)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_tipki")
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_tbgi4")]
+
+[node name="Inventory System UI" parent="UI" instance=ExtResource("4_tefeu")]
+
+[node name="TileMaps" parent="." instance=ExtResource("1_uvjg0")]
+unique_name_in_owner = true
+
+[node name="Player" parent="TileMaps" instance=ExtResource("3_506sy")]
+
+[node name="Label" type="Label" parent="TileMaps/Player"]
+z_index = 1
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = -22.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="TileMaps/Player"]
+zoom = Vector2(2, 2)
+position_smoothing_speed = 10.0
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1000
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(480, 180)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D"]
+texture = ExtResource("6_tefeu")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(480, 180)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D2"]
+texture = ExtResource("7_o6xl0")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_tipki")
+
+[editable path="TileMaps"]

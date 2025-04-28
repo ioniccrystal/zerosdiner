@@ -1,0 +1,240 @@
+[gd_scene load_steps=34 format=3 uid="uid://cbgr1qr1m8exm"]
+
+[ext_resource type="Script" uid="uid://cr22ehrytry0x" path="res://scripts/entity/voidsent.gd" id="1_c0yhk"]
+[ext_resource type="Resource" uid="uid://deq36ld0fff0s" path="res://resources/entity/zero.tres" id="2_abnoq"]
+[ext_resource type="Texture2D" uid="uid://bhtr7eqqrnwrq" path="res://sprites/characters/zero.png" id="2_mcv4e"]
+[ext_resource type="AnimationLibrary" uid="uid://ca4bu1ol5t0ix" path="res://resources/frames/zero_frames.tres" id="3_frsnl"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://cquybbjterpoe" path="res://resources/state_machine/zero_animation_tree_root.tres" id="4_bio1g"]
+[ext_resource type="Script" uid="uid://wkhjv8wq1c5s" path="res://addons/inventory-system/core/inventory.gd" id="6_3s5hj"]
+[ext_resource type="Script" uid="uid://d0mfup55t4k28" path="res://scripts/components/transport_component.gd" id="6_w1jvj"]
+[ext_resource type="Script" uid="uid://b0bqn8gtyevqu" path="res://addons/behaviour_toolkit/finite_state_machine/fsm.gd" id="7_b21bj"]
+[ext_resource type="Resource" uid="uid://b04hr618mq72o" path="res://resources/inventory/database.tres" id="7_cpald"]
+[ext_resource type="Script" uid="uid://d11c6gwrjou0w" path="res://addons/behaviour_toolkit/behaviour_tree/bt_root.gd" id="7_yj183"]
+[ext_resource type="Script" uid="uid://k5p6yghm7nrm" path="res://addons/behaviour_toolkit/finite_state_machine/fsm_state.gd" id="8_543nm"]
+[ext_resource type="Resource" uid="uid://8iv6u27x0yb0" path="res://resources/behaviour_tree/blackboard.tres" id="8_gchw7"]
+[ext_resource type="Script" uid="uid://dcw80x1cdwvqx" path="res://scripts/interaction/interact_area.gd" id="8_un8ib"]
+[ext_resource type="Script" uid="uid://bv80dvrqw5nqc" path="res://addons/behaviour_toolkit/finite_state_machine/fsm_state_integrated_bt.gd" id="9_3nhk7"]
+[ext_resource type="Script" uid="uid://8rcyavsdmew5" path="res://addons/behaviour_toolkit/behaviour_tree/composites/bt_selector.gd" id="9_uc1lv"]
+[ext_resource type="Script" uid="uid://c584shlo6w6it" path="res://addons/behaviour_toolkit/behaviour_tree/bt_leaf.gd" id="10_81csy"]
+[ext_resource type="Script" uid="uid://dpr2xa1e5hy8u" path="res://addons/behaviour_toolkit/behaviour_tree/composites/bt_sequence.gd" id="10_aojd7"]
+[ext_resource type="Script" uid="uid://bcn5yk30o60vt" path="res://addons/inventory-system/core/slot.gd" id="10_fuljn"]
+[ext_resource type="Script" uid="uid://c6si2venemcbd" path="res://addons/behaviour_toolkit/behaviour_tree/composites/bt_random.gd" id="11_61eaj"]
+[ext_resource type="Script" uid="uid://oo1isw8gthk6" path="res://scripts/behaviour_tree/find_task.gd" id="11_opbn0"]
+[ext_resource type="Script" uid="uid://buvb8uppbyosm" path="res://addons/behaviour_toolkit/behaviour_tree/leaves/leaf_wait.gd" id="13_4bvir"]
+[ext_resource type="Script" uid="uid://bgq38d3hukij8" path="res://scripts/behaviour_tree/nearest_pick.gd" id="13_16ha0"]
+[ext_resource type="Script" uid="uid://c1p4rvsbwuo6w" path="res://scripts/behaviour_tree/wander.gd" id="13_jetnm"]
+[ext_resource type="Script" uid="uid://8obqxm4ecqc3" path="res://scripts/behaviour_tree/inventory_full.gd" id="13_p0ry3"]
+[ext_resource type="Script" uid="uid://bof56dd5v73dn" path="res://scripts/behaviour_tree/nearest_store.gd" id="14_erknm"]
+[ext_resource type="Script" uid="uid://do841lxmfjeev" path="res://addons/behaviour_toolkit/behaviour_tree/decorators/decorator_always_fail.gd" id="14_h1c8p"]
+[ext_resource type="Script" uid="uid://qkhn2rt2l61f" path="res://addons/behaviour_toolkit/behaviour_tree/decorators/decorator_inverter.gd" id="14_jerfr"]
+[ext_resource type="Script" uid="uid://c6mxel0o1swpd" path="res://scripts/behaviour_tree/inventory_empty.gd" id="17_aoset"]
+[ext_resource type="Script" uid="uid://b02dhg518f2s6" path="res://scripts/behaviour_tree/nearest_transport.gd" id="19_6or31"]
+[ext_resource type="Script" uid="uid://1h0braq41vwb" path="res://addons/behaviour_toolkit/finite_state_machine/fsm_transition.gd" id="19_7gjc3"]
+[ext_resource type="Script" uid="uid://fufcbj0ikfey" path="res://scripts/behaviour_tree/navgating.gd" id="20_dtu8s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fg8xd"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpald"]
+radius = 16.0
+
+[node name="Zero" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_c0yhk")
+profile = ExtResource("2_abnoq")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_mcv4e")
+offset = Vector2(0, -10)
+hframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fg8xd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("3_frsnl")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = ExtResource("4_bio1g")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 1.0
+parameters/state_machine/idle/blend_position = Vector2(0, 0)
+parameters/state_machine/walk/blend_position = Vector2(0, 0)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+path_max_distance = 16.0
+neighbor_distance = 100.0
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="InteractArea" type="Area2D" parent="." node_paths=PackedStringArray("inventory_handler")]
+script = ExtResource("8_un8ib")
+inventory_handler = NodePath("../TransportComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_cpald")
+
+[node name="TransportComponent" type="Node" parent="." node_paths=PackedStringArray("interact_area")]
+unique_name_in_owner = true
+script = ExtResource("6_w1jvj")
+interact_area = NodePath("../InteractArea")
+database = ExtResource("7_cpald")
+
+[node name="Inventory" type="Node" parent="TransportComponent"]
+script = ExtResource("6_3s5hj")
+slots = Array[ExtResource("10_fuljn")]([null, null, null])
+slot_amount = 1
+inventory_name = "背包"
+database = ExtResource("7_cpald")
+metadata/_custom_type_script = "uid://wkhjv8wq1c5s"
+
+[node name="VoidsentStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "actor")]
+unique_name_in_owner = true
+script = ExtResource("7_b21bj")
+autostart = true
+initial_state = NodePath("Wander")
+actor = NodePath("..")
+blackboard = ExtResource("8_gchw7")
+
+[node name="Talk" type="Node" parent="VoidsentStateMachine"]
+script = ExtResource("8_543nm")
+
+[node name="Work" type="Node" parent="VoidsentStateMachine"]
+script = ExtResource("9_3nhk7")
+fire_event_on_status = true
+on_status = 1
+event = "work_failure"
+
+[node name="WorkRoot" type="Node" parent="VoidsentStateMachine/Work" node_paths=PackedStringArray("actor")]
+script = ExtResource("7_yj183")
+autostart = true
+actor = NodePath("../../..")
+blackboard = ExtResource("8_gchw7")
+
+[node name="TaskSelector" type="Node" parent="VoidsentStateMachine/Work/WorkRoot"]
+unique_name_in_owner = true
+script = ExtResource("9_uc1lv")
+
+[node name="AlwaysFail" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector"]
+script = ExtResource("14_h1c8p")
+
+[node name="DoNothing" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/AlwaysFail"]
+script = ExtResource("10_81csy")
+
+[node name="TransportSelector" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector"]
+script = ExtResource("9_uc1lv")
+
+[node name="TransportTask" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector"]
+script = ExtResource("10_aojd7")
+
+[node name="FindTask" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask"]
+script = ExtResource("11_opbn0")
+
+[node name="TransportSelector" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask"]
+script = ExtResource("9_uc1lv")
+
+[node name="MustStoreSequence" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector"]
+script = ExtResource("10_aojd7")
+
+[node name="InventoryFull" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector/MustStoreSequence"]
+script = ExtResource("13_p0ry3")
+
+[node name="NearestStore" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector/MustStoreSequence"]
+script = ExtResource("14_erknm")
+
+[node name="MustPickSequence" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector"]
+script = ExtResource("10_aojd7")
+
+[node name="InventoryEmpty" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector/MustPickSequence"]
+script = ExtResource("17_aoset")
+
+[node name="NearestPick" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector/MustPickSequence"]
+script = ExtResource("13_16ha0")
+
+[node name="NearestSequence" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector"]
+script = ExtResource("10_aojd7")
+
+[node name="NotFull" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector/NearestSequence"]
+script = ExtResource("14_jerfr")
+
+[node name="InventoryFull" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector/NearestSequence/NotFull"]
+script = ExtResource("13_p0ry3")
+
+[node name="NearestTransport" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask/TransportSelector/NearestSequence"]
+script = ExtResource("19_6or31")
+
+[node name="Navgating" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/TransportTask"]
+script = ExtResource("20_dtu8s")
+
+[node name="IdleStore" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector"]
+script = ExtResource("10_aojd7")
+
+[node name="NotEmpty" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/IdleStore"]
+script = ExtResource("14_jerfr")
+
+[node name="InventoryEmpty" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/IdleStore/NotEmpty"]
+script = ExtResource("17_aoset")
+
+[node name="NearestStore" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/IdleStore"]
+script = ExtResource("14_erknm")
+
+[node name="Navgating" type="Node" parent="VoidsentStateMachine/Work/WorkRoot/TaskSelector/TransportSelector/IdleStore"]
+script = ExtResource("20_dtu8s")
+
+[node name="OnWorkFailure" type="Node" parent="VoidsentStateMachine/Work" node_paths=PackedStringArray("next_state")]
+script = ExtResource("19_7gjc3")
+next_state = NodePath("../../Wander")
+use_event = true
+event = "work_failure"
+
+[node name="OnPlayerInteract" type="Node" parent="VoidsentStateMachine/Work" node_paths=PackedStringArray("next_state")]
+script = ExtResource("19_7gjc3")
+next_state = NodePath("../../Talk")
+use_event = true
+event = "player_interact"
+
+[node name="Wander" type="Node" parent="VoidsentStateMachine"]
+script = ExtResource("9_3nhk7")
+
+[node name="WanderRoot" type="Node" parent="VoidsentStateMachine/Wander" node_paths=PackedStringArray("actor")]
+script = ExtResource("7_yj183")
+actor = NodePath("../../..")
+blackboard = ExtResource("8_gchw7")
+
+[node name="WanderSequence" type="Node" parent="VoidsentStateMachine/Wander/WanderRoot"]
+script = ExtResource("10_aojd7")
+
+[node name="WanderRandom" type="Node" parent="VoidsentStateMachine/Wander/WanderRoot/WanderSequence"]
+script = ExtResource("11_61eaj")
+
+[node name="Wander" type="Node" parent="VoidsentStateMachine/Wander/WanderRoot/WanderSequence/WanderRandom"]
+script = ExtResource("13_jetnm")
+
+[node name="Wander2" type="Node" parent="VoidsentStateMachine/Wander/WanderRoot/WanderSequence/WanderRandom"]
+script = ExtResource("13_jetnm")
+
+[node name="DoNothing" type="Node" parent="VoidsentStateMachine/Wander/WanderRoot/WanderSequence/WanderRandom"]
+script = ExtResource("10_81csy")
+
+[node name="Wait200Ticks" type="Node" parent="VoidsentStateMachine/Wander/WanderRoot/WanderSequence"]
+script = ExtResource("13_4bvir")
+wait_for_ticks = 200
+
+[node name="OnWorkTask" type="Node" parent="VoidsentStateMachine/Wander" node_paths=PackedStringArray("next_state")]
+script = ExtResource("19_7gjc3")
+next_state = NodePath("../../Work")
+use_event = true
+event = "work_task"

@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=14 format=3 uid="uid://cku5lwd4olrhn"]
+
+[ext_resource type="Script" uid="uid://bcn5yk30o60vt" path="res://addons/inventory-system/core/slot.gd" id="1_7ffgg"]
+[ext_resource type="Script" uid="uid://clxy4glwc7u0" path="res://addons/inventory-system/craft/recipe.gd" id="2_87vyw"]
+[ext_resource type="Resource" uid="uid://dbpfj7rpb48f7" path="res://resources/inventory/items/carrot.tres" id="2_wjwgy"]
+[ext_resource type="Script" uid="uid://brh7nasqtj7d2" path="res://addons/inventory-system/core/slot_item.gd" id="3_bpoid"]
+[ext_resource type="Resource" uid="uid://cg6ctyhbbn2pv" path="res://resources/inventory/items/lettuce.tres" id="4_bh2sv"]
+[ext_resource type="Resource" uid="uid://bo8byp4aoca20" path="res://resources/inventory/items/vegetable_salad.tres" id="5_bpoid"]
+[ext_resource type="Resource" uid="uid://botq4av0vqpuc" path="res://resources/inventory/craft_stations/worktable.tres" id="7_bpoid"]
+
+[sub_resource type="Resource" id="Resource_nxc4t"]
+script = ExtResource("3_bpoid")
+definition = ExtResource("2_wjwgy")
+properties = {}
+
+[sub_resource type="Resource" id="Resource_ay7kd"]
+script = ExtResource("1_7ffgg")
+item = SubResource("Resource_nxc4t")
+amount = 1
+max_stack = -1
+
+[sub_resource type="Resource" id="Resource_i3080"]
+script = ExtResource("3_bpoid")
+definition = ExtResource("4_bh2sv")
+properties = {}
+
+[sub_resource type="Resource" id="Resource_d2ahl"]
+script = ExtResource("1_7ffgg")
+item = SubResource("Resource_i3080")
+amount = 1
+max_stack = -1
+
+[sub_resource type="Resource" id="Resource_bh2sv"]
+script = ExtResource("3_bpoid")
+definition = ExtResource("5_bpoid")
+properties = {}
+
+[sub_resource type="Resource" id="Resource_ua1k5"]
+script = ExtResource("1_7ffgg")
+item = SubResource("Resource_bh2sv")
+amount = 1
+max_stack = -1
+
+[resource]
+script = ExtResource("2_87vyw")
+products = Array[ExtResource("1_7ffgg")]([SubResource("Resource_ua1k5")])
+time_to_craft = 4.0
+station = ExtResource("7_bpoid")
+ingredients = Array[ExtResource("1_7ffgg")]([SubResource("Resource_ay7kd"), SubResource("Resource_d2ahl")])
+required_items = Array[ExtResource("1_7ffgg")]([])

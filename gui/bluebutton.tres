@@ -1,0 +1,70 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://p5el26wugfqj"]
+
+[ext_resource type="FontFile" uid="uid://dhjxdpo5m5w16" path="res://gui/fonts/zpix.ttf" id="1_pvtgc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1d2ws"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocqud"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.6, 0.458824, 0.466667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcwjb"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.0588235, 0.164706, 0.247059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uusmv"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.505882, 0.384314, 0.443137, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8nlj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16880"]
+content_margin_left = 32.0
+content_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvfv6"]
+content_margin_left = 32.0
+content_margin_right = 8.0
+bg_color = Color(0.6, 0.458824, 0.466667, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixmdd"]
+content_margin_left = 32.0
+content_margin_right = 8.0
+bg_color = Color(0.0588235, 0.164706, 0.247059, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25a37"]
+content_margin_left = 32.0
+content_margin_right = 8.0
+bg_color = Color(0.505882, 0.384314, 0.443137, 0.501961)
+
+[resource]
+Button/font_sizes/font_size = 12
+Button/fonts/font = ExtResource("1_pvtgc")
+Button/styles/disabled = SubResource("StyleBoxEmpty_1d2ws")
+Button/styles/focus = SubResource("StyleBoxEmpty_1d2ws")
+Button/styles/hover = SubResource("StyleBoxFlat_ocqud")
+Button/styles/normal = SubResource("StyleBoxFlat_xcwjb")
+Button/styles/pressed = SubResource("StyleBoxFlat_uusmv")
+Label/colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_pvtgc")
+Label/styles/normal = SubResource("StyleBoxEmpty_c8nlj")
+LevelButton/base_type = &"Button"
+LevelButton/styles/disabled = SubResource("StyleBoxEmpty_16880")
+LevelButton/styles/focus = SubResource("StyleBoxEmpty_16880")
+LevelButton/styles/hover = SubResource("StyleBoxFlat_lvfv6")
+LevelButton/styles/normal = SubResource("StyleBoxFlat_ixmdd")
+LevelButton/styles/pressed = SubResource("StyleBoxFlat_25a37")
+VBoxContainer/constants/separation = 0

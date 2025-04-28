@@ -1,0 +1,21 @@
+[gd_scene load_steps=7 format=3 uid="uid://det803h2jlop2"]
+
+[ext_resource type="PackedScene" uid="uid://b250w8fvj121h" path="res://scenes/map_objects/trees/tree.tscn" id="1_nx8j2"]
+[ext_resource type="Script" uid="uid://brh7nasqtj7d2" path="res://addons/inventory-system/core/slot_item.gd" id="2_atdmj"]
+[ext_resource type="Resource" uid="uid://gbqmoxcwalf8" path="res://resources/inventory/items/branch.tres" id="3_vok4w"]
+[ext_resource type="Resource" uid="uid://dc57gp5j51146" path="res://resources/inventory/items/olive.tres" id="4_nfi6f"]
+
+[sub_resource type="Resource" id="Resource_riy5g"]
+script = ExtResource("2_atdmj")
+definition = ExtResource("3_vok4w")
+properties = {}
+metadata/_custom_type_script = "uid://brh7nasqtj7d2"
+
+[sub_resource type="Resource" id="Resource_g338t"]
+script = ExtResource("2_atdmj")
+definition = ExtResource("4_nfi6f")
+properties = {}
+metadata/_custom_type_script = "uid://brh7nasqtj7d2"
+
+[node name="Tree" instance=ExtResource("1_nx8j2")]
+item_list = Array[ExtResource("2_atdmj")]([SubResource("Resource_riy5g"), SubResource("Resource_g338t")])

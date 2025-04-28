@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EntityProfile" load_steps=2 format=3 uid="uid://deq36ld0fff0s"]
+
+[ext_resource type="Script" uid="uid://cpqjx5cbwef01" path="res://scripts/entity/entity_profile.gd" id="1_eouqi"]
+
+[resource]
+script = ExtResource("1_eouqi")
+name = "零"
+speed = 100
+metadata/_custom_type_script = "uid://cpqjx5cbwef01"

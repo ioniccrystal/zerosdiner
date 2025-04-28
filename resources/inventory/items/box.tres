@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://dbfgfn6lnbjvi"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_do5j7"]
+[ext_resource type="Resource" uid="uid://6x2hclgosgic" path="res://resources/inventory/categories/facility.tres" id="1_p7f57"]
+[ext_resource type="Texture2D" uid="uid://du1natp4s6emj" path="res://resources/inventory/item_textures/box.tres" id="2_do5j7"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_px8yn"]
+
+[resource]
+script = ExtResource("2_px8yn")
+id = 6
+can_stack = false
+max_stack = 0
+name = "箱子"
+icon = ExtResource("2_do5j7")
+weight = 0.0
+properties = {
+"设施": "0"
+}
+dynamic_properties = Array[String]([])
+categories = Array[ExtResource("1_do5j7")]([ExtResource("1_p7f57")])

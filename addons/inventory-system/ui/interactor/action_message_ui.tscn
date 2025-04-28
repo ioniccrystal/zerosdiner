@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ateud0jxegv"]
+
+[ext_resource type="Script" uid="uid://cjp27pw302e2h" path="res://addons/inventory-system/ui/interactor/action_message.gd" id="1_d8uh5"]
+[ext_resource type="Resource" uid="uid://bxe7obvu1xl0x" path="res://addons/inventory-system/ui/interactor/default_input_helper.tres" id="2_3rlpb"]
+[ext_resource type="Resource" uid="uid://c2cuwwcpbs81y" path="res://addons/inventory-system/ui/interactor/default_input_icons.tres" id="3_rgd78"]
+
+[node name="ActionMessageUI" type="HBoxContainer" node_paths=PackedStringArray("texture_rect", "interact_message")]
+mouse_filter = 2
+script = ExtResource("1_d8uh5")
+input_helper = ExtResource("2_3rlpb")
+input_icons = ExtResource("3_rgd78")
+texture_rect = NodePath("TextureRect")
+interact_message = NodePath("InteractMessage")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+stretch_mode = 3
+
+[node name="InteractMessage" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.862745, 0.882353, 0.905882, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "Test Message"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxanka2v5jfke"]
+
+[ext_resource type="Script" uid="uid://bxeglfe28ctvw" path="res://scripts/map_objects/craft_station.gd" id="1_0qyi3"]
+[ext_resource type="Script" uid="uid://15gr2aw7uo6j" path="res://addons/inventory-system/interact/interact_action.gd" id="2_psbnc"]
+[ext_resource type="Texture2D" uid="uid://cx5siw621ewu8" path="res://sprites/tilesets/cozy_iso_master.png" id="3_2ijsv"]
+[ext_resource type="Script" uid="uid://bnl6w7tpg3erg" path="res://addons/inventory-system/craft/craft_station.gd" id="4_qqgk3"]
+[ext_resource type="Resource" uid="uid://botq4av0vqpuc" path="res://resources/inventory/craft_stations/worktable.tres" id="5_utxfd"]
+[ext_resource type="Resource" uid="uid://b04hr618mq72o" path="res://resources/inventory/database.tres" id="6_ml2xe"]
+[ext_resource type="Script" uid="uid://wkhjv8wq1c5s" path="res://addons/inventory-system/core/inventory.gd" id="7_aeyix"]
+
+[sub_resource type="Resource" id="Resource_aw3ry"]
+script = ExtResource("2_psbnc")
+input = "interact"
+description = "制作"
+code = 0
+metadata/_custom_type_script = "uid://15gr2aw7uo6j"
+
+[sub_resource type="Resource" id="Resource_o5xu3"]
+script = ExtResource("2_psbnc")
+input = "rotate"
+description = "旋转"
+code = 1
+metadata/_custom_type_script = "uid://15gr2aw7uo6j"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3apdx"]
+
+[node name="Worktable" type="Area2D"]
+script = ExtResource("1_0qyi3")
+actions = Array[ExtResource("2_psbnc")]([SubResource("Resource_aw3ry"), SubResource("Resource_o5xu3")])
+metadata/_custom_type_script = "uid://b3rypu4ian4c2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_2ijsv")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(288, 288, 32, 32)
+
+[node name="CraftStation" type="Node" parent="." node_paths=PackedStringArray("input_inventories", "output_inventories")]
+script = ExtResource("4_qqgk3")
+input_inventories = [NodePath("../Inventory")]
+output_inventories = [NodePath("../Inventory")]
+type = ExtResource("5_utxfd")
+processing_mode = 1
+database = ExtResource("6_ml2xe")
+metadata/_custom_type_script = "uid://bnl6w7tpg3erg"
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("7_aeyix")
+create_slot_if_needed = true
+remove_slot_if_empty = true
+database = ExtResource("6_ml2xe")
+metadata/_custom_type_script = "uid://wkhjv8wq1c5s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3apdx")

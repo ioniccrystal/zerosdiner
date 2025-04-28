@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://nid7fxc5rqg4"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_3bcdx"]
+[ext_resource type="Resource" uid="uid://b0neqi35q35us" path="res://resources/inventory/categories/material.tres" id="1_c3ouh"]
+[ext_resource type="Texture2D" uid="uid://bcnnx0bj73gbw" path="res://resources/inventory/item_textures/wood.tres" id="2_3bcdx"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_wedvc"]
+
+[resource]
+script = ExtResource("2_wedvc")
+id = 3
+can_stack = true
+max_stack = 99
+name = "木材"
+icon = ExtResource("2_3bcdx")
+weight = 0.0
+properties = {}
+dynamic_properties = Array[String]([])
+categories = Array[ExtResource("1_3bcdx")]([ExtResource("1_c3ouh")])

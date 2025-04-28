@@ -1,0 +1,110 @@
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://cbnffwt8jxdgo"]
+
+[ext_resource type="Texture2D" uid="uid://laay677px42x" path="res://sprites/tilesets/spritesheet.png" id="1_08s87"]
+[ext_resource type="Texture2D" uid="uid://dvsejqtmwsuhq" path="res://sprites/tilesets/iso_tile.png" id="1_pykru"]
+[ext_resource type="PackedScene" uid="uid://c6xddqobg5skm" path="res://scenes/map_objects/box.tscn" id="2_lpy8t"]
+[ext_resource type="PackedScene" uid="uid://bts50iptkllis" path="res://scenes/map_objects/plants/carrot.tscn" id="3_fowri"]
+[ext_resource type="PackedScene" uid="uid://cdw0t2r3nnuk5" path="res://scenes/map_objects/plants/lettuce.tscn" id="4_7kkm1"]
+[ext_resource type="PackedScene" uid="uid://det803h2jlop2" path="res://scenes/map_objects/trees/olive.tscn" id="6_gqxpw"]
+[ext_resource type="PackedScene" uid="uid://bxanka2v5jfke" path="res://scenes/map_objects/craft_stations/worktable.tscn" id="7_gqxpw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqxpw"]
+texture = ExtResource("1_08s87")
+texture_region_size = Vector2i(32, 16)
+0:8/size_in_atlas = Vector2i(1, 2)
+0:8/0 = 0
+0:8/0/texture_origin = Vector2i(0, 8)
+1:8/size_in_atlas = Vector2i(1, 2)
+1:8/0 = 0
+1:8/0/texture_origin = Vector2i(0, 8)
+2:8/size_in_atlas = Vector2i(1, 2)
+2:8/0 = 0
+2:8/0/texture_origin = Vector2i(0, 8)
+3:8/size_in_atlas = Vector2i(1, 2)
+3:8/0 = 0
+3:8/0/texture_origin = Vector2i(0, 8)
+4:8/size_in_atlas = Vector2i(1, 2)
+4:8/0 = 0
+4:8/0/texture_origin = Vector2i(0, 8)
+5:8/size_in_atlas = Vector2i(1, 2)
+5:8/0 = 0
+5:8/0/texture_origin = Vector2i(0, 8)
+6:8/size_in_atlas = Vector2i(1, 2)
+6:8/0 = 0
+6:8/0/texture_origin = Vector2i(0, 8)
+7:8/size_in_atlas = Vector2i(1, 2)
+7:8/0 = 0
+7:8/0/texture_origin = Vector2i(0, 8)
+8:8/size_in_atlas = Vector2i(1, 2)
+8:8/0 = 0
+8:8/0/texture_origin = Vector2i(0, 8)
+9:8/size_in_atlas = Vector2i(1, 2)
+9:8/0 = 0
+9:8/0/texture_origin = Vector2i(0, 8)
+10:8/size_in_atlas = Vector2i(1, 2)
+10:8/0 = 0
+10:8/0/texture_origin = Vector2i(0, 8)
+8:6/size_in_atlas = Vector2i(1, 2)
+8:6/0 = 0
+8:6/0/texture_origin = Vector2i(0, 8)
+9:6/size_in_atlas = Vector2i(1, 2)
+9:6/0 = 0
+9:6/0/texture_origin = Vector2i(0, 8)
+10:6/size_in_atlas = Vector2i(1, 2)
+10:6/0 = 0
+10:6/0/texture_origin = Vector2i(0, 8)
+9:10/size_in_atlas = Vector2i(1, 2)
+9:10/0 = 0
+9:10/0/texture_origin = Vector2i(0, 8)
+10:10/size_in_atlas = Vector2i(1, 2)
+10:10/0 = 0
+10:10/0/texture_origin = Vector2i(0, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hq70c"]
+texture = ExtResource("1_pykru")
+texture_region_size = Vector2i(32, 16)
+11:10/size_in_atlas = Vector2i(1, 2)
+11:10/0 = 0
+11:10/0/texture_origin = Vector2i(0, 8)
+8:10/size_in_atlas = Vector2i(1, 2)
+8:10/0 = 0
+8:10/0/texture_origin = Vector2i(0, 8)
+8:12/size_in_atlas = Vector2i(1, 2)
+8:12/0 = 0
+8:12/0/texture_origin = Vector2i(0, 8)
+11:12/size_in_atlas = Vector2i(1, 2)
+11:12/0 = 0
+11:12/0/texture_origin = Vector2i(0, 8)
+12:12/size_in_atlas = Vector2i(1, 2)
+12:12/0 = 0
+13:12/size_in_atlas = Vector2i(1, 2)
+13:12/0 = 0
+14:12/size_in_atlas = Vector2i(1, 2)
+14:12/0 = 0
+15:12/size_in_atlas = Vector2i(1, 2)
+15:12/0 = 0
+12:14/size_in_atlas = Vector2i(1, 2)
+12:14/0 = 0
+13:14/size_in_atlas = Vector2i(1, 2)
+13:14/0 = 0
+14:14/size_in_atlas = Vector2i(1, 2)
+14:14/0 = 0
+15:14/size_in_atlas = Vector2i(1, 2)
+15:14/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jj5c4"]
+resource_name = "map_objects"
+scenes/0/scene = ExtResource("2_lpy8t")
+scenes/1/scene = ExtResource("7_gqxpw")
+scenes/2/scene = ExtResource("3_fowri")
+scenes/3/scene = ExtResource("4_7kkm1")
+scenes/4/scene = ExtResource("6_gqxpw")
+
+[resource]
+tile_shape = 1
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(32, 16)
+sources/1 = SubResource("TileSetAtlasSource_hq70c")
+sources/2 = SubResource("TileSetScenesCollectionSource_jj5c4")
+sources/0 = SubResource("TileSetAtlasSource_gqxpw")

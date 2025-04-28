@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://bo8byp4aoca20"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_0mx4e"]
+[ext_resource type="Resource" uid="uid://c12v8no3rnk32" path="res://resources/inventory/categories/food.tres" id="1_d3hnv"]
+[ext_resource type="Texture2D" uid="uid://c0ikmm05ax3ba" path="res://resources/inventory/item_textures/vegetable_salad.tres" id="2_0mx4e"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_h8jeu"]
+
+[resource]
+script = ExtResource("2_h8jeu")
+id = 2
+can_stack = false
+max_stack = 0
+name = "蔬菜沙拉"
+icon = ExtResource("2_0mx4e")
+weight = 0.0
+properties = {}
+dynamic_properties = Array[String]([])
+categories = Array[ExtResource("1_0mx4e")]([ExtResource("1_d3hnv")])

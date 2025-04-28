@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="InputIcons" load_steps=8 format=3 uid="uid://c2cuwwcpbs81y"]
+
+[ext_resource type="Script" uid="uid://b8meyeuu5r8r0" path="res://addons/inventory-system/ui/interactor/input_icons.gd" id="1_6ji74"]
+[ext_resource type="Texture2D" uid="uid://b33wqb3ayjucv" path="res://sprites/ui/keyboard.png" id="1_haffn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haffn"]
+atlas = ExtResource("1_haffn")
+region = Rect2(357, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jovri"]
+atlas = ExtResource("1_haffn")
+region = Rect2(323, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry75k"]
+atlas = ExtResource("1_haffn")
+region = Rect2(408, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tspcn"]
+atlas = ExtResource("1_haffn")
+region = Rect2(340, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sxhh"]
+atlas = ExtResource("1_haffn")
+region = Rect2(357, 34, 16, 16)
+
+[resource]
+script = ExtResource("1_6ji74")
+keyboard_c = SubResource("AtlasTexture_haffn")
+keyboard_e = SubResource("AtlasTexture_jovri")
+keyboard_i = SubResource("AtlasTexture_ry75k")
+keyboard_r = SubResource("AtlasTexture_tspcn")
+keyboard_t = SubResource("AtlasTexture_0sxhh")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemCategory" load_steps=2 format=3 uid="uid://6x2hclgosgic"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_tcbb8"]
+
+[resource]
+script = ExtResource("1_tcbb8")
+name = "设施"
+color = Color(0.211765, 0.705882, 0.792157, 1)

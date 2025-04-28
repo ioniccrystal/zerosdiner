@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="InventoryDatabase" load_steps=30 format=3 uid="uid://b04hr618mq72o"]
+
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_l1qla"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_7sefq"]
+[ext_resource type="Resource" uid="uid://c12v8no3rnk32" path="res://resources/inventory/categories/food.tres" id="2_mxjrp"]
+[ext_resource type="Resource" uid="uid://dbpfj7rpb48f7" path="res://resources/inventory/items/carrot.tres" id="3_0eeob"]
+[ext_resource type="Script" uid="uid://clxy4glwc7u0" path="res://addons/inventory-system/craft/recipe.gd" id="3_6idfa"]
+[ext_resource type="Resource" uid="uid://b0neqi35q35us" path="res://resources/inventory/categories/material.tres" id="3_tb5sa"]
+[ext_resource type="Script" uid="uid://luiigo37js4v" path="res://addons/inventory-system/core/inventory_database.gd" id="4_4rf15"]
+[ext_resource type="Resource" uid="uid://6x2hclgosgic" path="res://resources/inventory/categories/facility.tres" id="4_jds07"]
+[ext_resource type="Resource" uid="uid://dii001glbftfi" path="res://resources/inventory/categories/seed.tres" id="5_3rixp"]
+[ext_resource type="Script" uid="uid://dc6lrd2ui1l42" path="res://addons/inventory-system/craft/craft_station_type.gd" id="5_iyn0x"]
+[ext_resource type="Resource" uid="uid://cg6ctyhbbn2pv" path="res://resources/inventory/items/lettuce.tres" id="6_10k2b"]
+[ext_resource type="Resource" uid="uid://p761m6t8yitk" path="res://resources/inventory/craft_stations/hand.tres" id="7_mjw3c"]
+[ext_resource type="Resource" uid="uid://bo8byp4aoca20" path="res://resources/inventory/items/vegetable_salad.tres" id="7_tdv0f"]
+[ext_resource type="Resource" uid="uid://nid7fxc5rqg4" path="res://resources/inventory/items/wood.tres" id="8_8oqns"]
+[ext_resource type="Resource" uid="uid://ho2hbcghbgm7" path="res://resources/inventory/items/worktable.tres" id="9_ynov0"]
+[ext_resource type="Resource" uid="uid://gbqmoxcwalf8" path="res://resources/inventory/items/branch.tres" id="10_7givu"]
+[ext_resource type="Resource" uid="uid://dagl51ybq413y" path="res://resources/inventory/recipes/worktable.tres" id="12_0nt61"]
+[ext_resource type="Resource" uid="uid://dbfgfn6lnbjvi" path="res://resources/inventory/items/box.tres" id="12_xyrad"]
+[ext_resource type="Resource" uid="uid://cmm3ryfq2sh24" path="res://resources/inventory/items/carrot_seed.tres" id="13_0a7t8"]
+[ext_resource type="Resource" uid="uid://cku5lwd4olrhn" path="res://resources/inventory/recipes/vegetable_salad.tres" id="13_7givu"]
+[ext_resource type="Resource" uid="uid://botq4av0vqpuc" path="res://resources/inventory/craft_stations/worktable.tres" id="14_nsxwn"]
+[ext_resource type="Resource" uid="uid://dcoxl1rbpqx8" path="res://resources/inventory/recipes/wood.tres" id="14_oygtb"]
+[ext_resource type="Resource" uid="uid://dc57gp5j51146" path="res://resources/inventory/items/olive.tres" id="15_8fju7"]
+[ext_resource type="Resource" uid="uid://cfebopt52ufjd" path="res://resources/inventory/craft_stations/mill.tres" id="15_lwy0b"]
+[ext_resource type="Resource" uid="uid://c5hmogt6tui1a" path="res://resources/inventory/craft_stations/kitchen.tres" id="16_iuyme"]
+[ext_resource type="Resource" uid="uid://dv5ie344o83jb" path="res://resources/inventory/items/gloves.tres" id="16_w8voo"]
+[ext_resource type="Resource" uid="uid://dubemr7g7uev7" path="res://resources/inventory/craft_stations/bonfire.tres" id="17_cn8w1"]
+[ext_resource type="Resource" uid="uid://cri74ndo1m0k0" path="res://resources/inventory/recipes/box.tres" id="17_plcrs"]
+[ext_resource type="Resource" uid="uid://tbhlcju2sngp" path="res://resources/inventory/recipes/carrot_seed.tres" id="20_dm3g0"]
+
+[resource]
+script = ExtResource("4_4rf15")
+items = Array[ExtResource("2_7sefq")]([ExtResource("3_0eeob"), ExtResource("6_10k2b"), ExtResource("7_tdv0f"), ExtResource("8_8oqns"), ExtResource("10_7givu"), ExtResource("9_ynov0"), ExtResource("12_xyrad"), ExtResource("13_0a7t8"), ExtResource("15_8fju7"), ExtResource("16_w8voo")])
+recipes = Array[ExtResource("3_6idfa")]([ExtResource("12_0nt61"), ExtResource("13_7givu"), ExtResource("14_oygtb"), ExtResource("17_plcrs"), ExtResource("20_dm3g0")])
+stations_type = Array[ExtResource("5_iyn0x")]([ExtResource("7_mjw3c"), ExtResource("14_nsxwn"), ExtResource("15_lwy0b"), ExtResource("16_iuyme"), ExtResource("17_cn8w1")])
+item_categories = Array[ExtResource("1_l1qla")]([ExtResource("2_mxjrp"), ExtResource("3_tb5sa"), ExtResource("4_jds07"), ExtResource("5_3rixp")])

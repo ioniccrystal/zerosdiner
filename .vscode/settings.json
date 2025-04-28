@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.uid": true  // 添加这一行来隐藏.uid文件
+    },
+    "godotTools.editorPath.godot4": "d:\\godot\\Godot_v4.4-dev1_win64.exe\\Godot_v4.4-dev1_win64.exe"
+}

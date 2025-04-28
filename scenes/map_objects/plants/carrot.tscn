@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bts50iptkllis"]
+
+[ext_resource type="PackedScene" uid="uid://ci8wgrjymeeyf" path="res://scenes/map_objects/plants/plant.tscn" id="1_5rybe"]
+[ext_resource type="Resource" uid="uid://dbpfj7rpb48f7" path="res://resources/inventory/items/carrot.tres" id="2_5d52w"]
+[ext_resource type="Script" uid="uid://brh7nasqtj7d2" path="res://addons/inventory-system/core/slot_item.gd" id="3_t3mm1"]
+
+[sub_resource type="Resource" id="Resource_5d52w"]
+script = ExtResource("3_t3mm1")
+definition = ExtResource("2_5d52w")
+properties = {}
+metadata/_custom_type_script = "uid://brh7nasqtj7d2"
+
+[node name="Plant" instance=ExtResource("1_5rybe")]
+item_list = Array[ExtResource("3_t3mm1")]([SubResource("Resource_5d52w")])
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+frame = 0
+frame_progress = 0.0

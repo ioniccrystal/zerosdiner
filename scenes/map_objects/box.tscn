@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://c6xddqobg5skm"]
+
+[ext_resource type="Script" uid="uid://dd6gte1ktbij4" path="res://scripts/map_objects/box_inventory.gd" id="1_vdhac"]
+[ext_resource type="Texture2D" uid="uid://dvsejqtmwsuhq" path="res://sprites/tilesets/iso_tile.png" id="2_2dgks"]
+[ext_resource type="Script" uid="uid://15gr2aw7uo6j" path="res://addons/inventory-system/interact/interact_action.gd" id="2_xsc51"]
+[ext_resource type="Script" uid="uid://wkhjv8wq1c5s" path="res://addons/inventory-system/core/inventory.gd" id="3_vdhac"]
+[ext_resource type="Resource" uid="uid://b04hr618mq72o" path="res://resources/inventory/database.tres" id="4_k3e51"]
+[ext_resource type="Script" uid="uid://bcn5yk30o60vt" path="res://addons/inventory-system/core/slot.gd" id="5_csdn8"]
+
+[sub_resource type="Resource" id="Resource_csdn8"]
+script = ExtResource("2_xsc51")
+input = "interact"
+description = "打开箱子"
+code = 0
+metadata/_custom_type_script = "uid://15gr2aw7uo6j"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8gd6"]
+atlas = ExtResource("2_2dgks")
+region = Rect2(416, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rb8b"]
+atlas = ExtResource("2_2dgks")
+region = Rect2(384, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4fl5"]
+atlas = ExtResource("2_2dgks")
+region = Rect2(384, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhumk"]
+atlas = ExtResource("2_2dgks")
+region = Rect2(384, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lkbx"]
+atlas = ExtResource("2_2dgks")
+region = Rect2(416, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5knm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8gd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rb8b")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4fl5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhumk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lkbx")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_csdn8"]
+
+[node name="Box" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_vdhac")
+actions = Array[ExtResource("2_xsc51")]([SubResource("Resource_csdn8")])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c5knm")
+animation = &"open"
+autoplay = "default"
+offset = Vector2(0, -24)
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("3_vdhac")
+slots = Array[ExtResource("5_csdn8")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+inventory_name = "箱子"
+database = ExtResource("4_k3e51")
+metadata/_custom_type_script = "uid://wkhjv8wq1c5s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_csdn8")

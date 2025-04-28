@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://cci6dwxmbapt1"]
+
+[ext_resource type="Script" uid="uid://bsdhtejmhurkc" path="res://addons/inventory-system/ui/craft/craft_station_ui.gd" id="1_ny8hp"]
+[ext_resource type="PackedScene" uid="uid://duq60fhdry5hv" path="res://addons/inventory-system/ui/craft/recipe_ui.tscn" id="2_jgmgq"]
+[ext_resource type="Script" uid="uid://dskgfmqjfc0ap" path="res://addons/inventory-system/ui/craft/craftings_ui.gd" id="3_imm8o"]
+[ext_resource type="PackedScene" uid="uid://db7sndy7hfpq2" path="res://addons/inventory-system/ui/craft/crafting_ui.tscn" id="4_5nmfv"]
+[ext_resource type="StyleBox" uid="uid://plhtcyooiuhw" path="res://gui/styles/containers/boxpanel.tres" id="5_v8a36"]
+[ext_resource type="PackedScene" uid="uid://1dijqt6vr078" path="res://addons/inventory-system/ui/inventory_ui.tscn" id="7_g573c"]
+
+[node name="CraftStationUI" type="Control" node_paths=PackedStringArray("input_inventory_ui", "output_inventory_ui")]
+layout_mode = 3
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ny8hp")
+recipe_ui_scene = ExtResource("2_jgmgq")
+input_inventory_ui = NodePath("InventoryUI")
+output_inventory_ui = NodePath("InventoryUI2")
+
+[node name="CraftingsUI" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 2.0
+script = ExtResource("3_imm8o")
+crafting_ui_scene = ExtResource("4_5nmfv")
+
+[node name="RecipesUI" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_v8a36")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RecipesUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="RecipesUI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="RecipesUI/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="TitleLabel" type="Label" parent="RecipesUI/VBoxContainer/Panel/Title"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "配方"
+
+[node name="Control" type="MarginContainer" parent="RecipesUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RecipesUI/VBoxContainer/Control"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="RecipesContent" type="VBoxContainer" parent="RecipesUI/VBoxContainer/Control/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InventoryUI" parent="." instance=ExtResource("7_g573c")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = -1.0
+anchor_right = 1.0
+anchor_bottom = -0.5
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="InventoryUI2" parent="." instance=ExtResource("7_g573c")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = -0.5
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0

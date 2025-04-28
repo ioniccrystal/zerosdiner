@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://dbpfj7rpb48f7"]
+
+[ext_resource type="Resource" uid="uid://b0neqi35q35us" path="res://resources/inventory/categories/material.tres" id="1_13bdg"]
+[ext_resource type="Script" uid="uid://h1fd22exjpi3" path="res://addons/inventory-system/core/item_category.gd" id="1_ubdqk"]
+[ext_resource type="Script" uid="uid://d3semuka47jkw" path="res://addons/inventory-system/core/inventory_item.gd" id="2_vmums"]
+[ext_resource type="Texture2D" uid="uid://bfj6n1g2uiw7s" path="res://sprites/items/food/vegetable_carrot.png" id="3_ubdqk"]
+
+[resource]
+script = ExtResource("2_vmums")
+id = 0
+can_stack = true
+max_stack = 99
+name = "胡萝卜"
+icon = ExtResource("3_ubdqk")
+weight = 0.0
+properties = {}
+dynamic_properties = Array[String](["energy"])
+categories = Array[ExtResource("1_ubdqk")]([ExtResource("1_13bdg")])
