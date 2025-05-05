@@ -79,6 +79,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	for action in object_actions:
 		if event.is_action_pressed(action.input):
 			current_interactible.interact(self,action.code)
+		if event.is_action_released(action.input):
+			if current_interactible.has_method("interact_release"):
+				current_interactible.interact_release(self,action.code)
 	for action in hand_actions:
 		if event.is_action_pressed(action.input):
 			actual_hand_object.interact(self, action.code)
+		if event.is_action_released(action.input):
+			if actual_hand_object.has_method("interact_release"):
+				actual_hand_object.interact_release(self,action.code)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ml2bfhl1qm8"]
+
+[ext_resource type="Script" uid="uid://cso3qd0dwb4h7" path="res://scripts/ui/cursor_manager.gd" id="1_duush"]
+[ext_resource type="Texture2D" uid="uid://cmxwe65ra8mc2" path="res://gui/sprites/gdp_styles.png" id="2_duush"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpjpb"]
+atlas = ExtResource("2_duush")
+region = Rect2(239, 239, 16, 16)
+
+[node name="CursorManager" type="Node"]
+script = ExtResource("1_duush")
+
+[node name="Progress" type="TextureProgressBar" parent="."]
+offset_right = 16.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+fill_mode = 4
+texture_progress = SubResource("AtlasTexture_qpjpb")

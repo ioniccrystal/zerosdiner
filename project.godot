@@ -21,8 +21,9 @@ SaveManager="*res://scenes/preloads/save_manager.tscn"
 AudioManager="*res://scenes/preloads/audio_manager.tscn"
 SceneTransitionManager="*res://scenes/preloads/scene_transition_manager.tscn"
 CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
-Global="*res://scenes/preloads/global.tscn"
+CursorManager="*res://scenes/ui/cursor_manager.tscn"
 InventorySystem="*res://addons/inventory-system/core/inventory_system.tscn"
+Global="*res://scenes/preloads/global.tscn"
 
 [display]
 
