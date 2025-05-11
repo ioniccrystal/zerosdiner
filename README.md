@@ -1,3 +1,8 @@
+本作图块素材为收费素材：
+https://philtacular.itch.io/pixel-art-tileset-isometric-cozy-pack
+https://philtacular.itch.io/pixel-art-tileset-isometric-spirit-home
+未购买者请勿下载和使用
+其余的记录：
 UI：
 	res://addons/inventory-system/ui/inventory_system_ui.gd
 
